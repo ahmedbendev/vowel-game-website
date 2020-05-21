@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signature</title> 
+    <!-- Custom Css -->
+    <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- More Custom Css -->
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+          {%if user.is_authenticated %}
+          <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+          <li class="navitem"><a href="{% url 'profile' %}"><h1 class="navlist-title">profile</h1></a></li>
+          <li class="navitem"><a href="{% url 'logout' %}"><h1 class="navlist-title">logout</h1></a></li> 
+          {%else%}
+          <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+          <li class="navitem"><a href="{% url 'login' %}"><h1 class="navlist-title">login</h1></a></li>  
+          <li class="navitem"><a href="{% url 'register' %}"><h1 class="navlist-title">register</h1></a></li>
+          {%endif%}    
+    </nav>
+    <h1 class="title"> Vowels Website - questions   {{quiz.quiz_number_of_current_question}}</h1>
+
+
+    <div class="scoandgus">
+    <h2 class="score">score <span class="sps">{{quiz.quiz_score}}</span></h2>
+    <h2 class="chances">Guesses <span class="sps">{{quiz.quiz_number_of_gusses}}</span></h2>
+    </div>
+    {%if cor == 2 %}
+    <h3 class="incans">your answer was incorect please try again</h3>
+    {%endif%}   
+
+<!-- <h2 class="qsthint">listen to the sound than choose your answer :</h2> -->
+<div class="audioplayer">
+<audio controls autoplay>
+<source src="{{question.word_sound.url}}" type="audio/mp3">
+</audio>
+</div>
+<!-- <h2 class="qsthint">choose the sound :</h2> -->
+{% if quiz.quiz_number_of_word == 0 %}
+the game is end 
+{% else %}
+<form class=""  action="{% url 'checkanswer' %}" method="post">
+  {% csrf_token %}
+  <input id="quiz_num" type="hidden" name="quiznum" value="{{ quiz }}">
+  <input id="qst_num" type="hidden" name="qstnum" value="{{ qst }}">
+  <input id="qst_num" type="hidden" name="question" value="{{ question }}">
+  <div class="onechosediv">
+  <div class="optionchose"> 
+  <input type="radio" id="male" name="vowel" value="i">
+  <label class="onechoselabel">i</label><br>
+  </div> 
+  <div class="optionchose"> 
+  <input type="radio" id="female" name="vowel" value="I">
+  <label class="onechoselabel">I</label><br>
+  </div>
+  <div class="optionchose">  
+  <input type="radio" id="other" name="vowel" value="e">
+  <label class="onechoselabel">e</label><br>
+  </div>
+  <div class="optionchose">  
+  <input type="radio" id="male" name="vowel" value="ԑ">
+  <label class="onechoselabel">ԑ</label><br>
+  </div>
+  <div class="optionchose">  
+  <input type="radio" id="female" name="vowel" value="ᴂ">
+  <label class="onechoselabel">ᴂ</label><br>
+  </div>
+  <div class="optionchose">   
+  <input type="radio" id="other" name="vowel" value="a">
+  <label class="onechoselabel">a</label><br>
+  </div>
+  <div class="optionchose"> 
+  <input type="radio" id="male" name="vowel" value="ᴧ">
+  <label class="onechoselabel">ᴧ</label><br>
+  </div>
+  <div class="optionchose"> 
+  <input type="radio" id="female" name="vowel" value="o">
+  <label class="onechoselabel">o</label><br>
+  </div>
+  <div class="optionchose"> 
+  <input type="radio" id="other" name="vowel" value="ᶷ">
+  <label class="onechoselabel">ᶷ</label><br>
+  </div>
+  <div class="optionchose"> 
+    <input type="radio" id="other" name="vowel" value="u">
+    <label class="onechoselabel">u</label><br>
+  </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-outline-info" type="submit" >SUBMIT</button>
+  </div>
+
+</form>
+{% endif %}
+</body>
+</html>    
+    

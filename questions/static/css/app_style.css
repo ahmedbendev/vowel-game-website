@@ -1,0 +1,389 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+a{
+    color: initial;
+    text-decoration: none;
+}
+
+h1{
+    margin: 0px;
+}
+h2{
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    background: black;
+    margin-right: 20vw;
+    margin-top: 25px;
+    margin-left: 20vw;
+    margin-bottom: 25px;
+    border-radius: 25px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+.navitem {
+    display: initial;
+    margin-right: 15px;
+    margin-left: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+}
+.navitem:hover {
+    background: white;
+    color: #2a6170;
+}
+.navlist-title {
+    color: black;
+    font: menu;
+    font-size: 25px;
+}
+.title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    color: black;
+    font-size: 45px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.sec-title {
+    background: white;
+    padding: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-family: monospace;
+    margin-bottom: 30px;
+}
+.form-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+button.btn.btn-outline-info {
+    margin-bottom: 25px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 40px;
+    font-size: 32px;
+    border-radius: 10px;
+    color: black;
+    background: white;
+    border: none;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+button.btn.btn-outline-info:hover {
+    background: white;
+    color: #2a6170;
+}
+fieldset.form-group {
+    border: 12px solid white;
+    border-radius: 20px;
+    margin: 20px;
+}
+p.firstp {
+    text-align: center;
+    font-size: 23px;
+    font-family: monospace;
+    text-transform: capitalize;
+}
+label {
+    font-size: 25px;
+    font-family: monospace;
+    padding-right: 20px;
+    margin-left: 50px;
+}
+#id_sounds {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+input#id_number_of_word {
+    height: 40px;
+    font-size: 30px;
+    background: black;
+    color: white;
+    width: 70px;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+input#id_number_of_gusses {
+    height: 40px;
+    font-size: 30px;
+    background: black;
+    width: 70px;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+    color: white;
+}
+legend.border-bottom.mb-4 {
+    text-align: center;
+    padding: 15px;
+    color: white;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+div#div_id_username {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+input#id_username {
+    font-size: 30px;
+    margin-left: 25px;
+    background: white;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+div#div_id_password {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    justify-content: space-between;
+}
+
+input#id_password {
+    font-size: 30px;
+    margin-left: 25px;
+    background: white;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+.logoutmsg {
+    text-align: center;
+    font-family: monospace;
+    color: white;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.logoutmsg2 {
+    text-align: center;
+    font-family: monospace;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+}
+p#hint_id_username {
+    display: none;
+}
+p#hint_id_password1 {
+    display: none;
+}
+p#hint_id_password2 {
+    display: none;
+}
+ul {
+    display: none;
+}
+div#div_id_email {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    justify-content: space-between;
+}
+input#id_email {
+    font-size: 30px;
+    margin-left: 25px;
+    background: white;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+div#div_id_password1 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+input#id_password1 {
+    font-size: 30px;
+    margin-left: 25px;
+    background: white;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+div#div_id_password2 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    justify-content: space-between;
+}
+input#id_password2 {
+    font-size: 30px;
+    margin-left: 25px;
+    background: white;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid white;
+}
+.scoandgus {
+    display: flex;
+    justify-content: space-between;
+}
+.score {
+    margin-left: 50px;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.chances {
+    margin-right: 50px;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.sps {
+    color: white;
+    background: black;
+    padding: 10px;
+    border-radius: 20px;
+}
+.qsthint {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.audioplayer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.onechoselabel {
+    font-size: 30px;
+    font-family: monospace;
+    padding-right: 0px;
+    margin-left: 0px;
+}
+.onechosediv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+.third-title {
+    background: white;
+    padding: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 40%;
+    margin-right: 40%;
+    font-family: monospace;
+    margin-bottom: 30px;
+}
+.correction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    margin-top: 30px;
+}
+.correctiontext {
+    background: white;
+    padding: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    font-family: monospace;
+    margin-bottom: 30px;
+}
+.spsct{
+    color: white;
+    background: black;
+    padding: 10px;
+    border-radius: 20px;
+}
+.spsctvowel{
+    color: white;
+    background: black;
+    padding: 10px;
+    border-radius: 20px;
+}
+.resulttex {
+    text-align: center;
+    font-family: monospace;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 75px;
+}
+.asteriskField {
+    display: none;
+}
+.incans {
+    background: white;
+    padding: 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    font-family: monospace;
+    margin-bottom: 20px;
+    margin-right: 80px;
+    margin-left: 80px;
+}

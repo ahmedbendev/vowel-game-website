@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signature</title> 
+    <!-- Custom Css -->
+    <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- More Custom Css -->
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+          {%if user.is_authenticated %}
+          <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+          <li class="navitem"><a href="{% url 'profile' %}"><h1 class="navlist-title">profile</h1></a></li>
+          <li class="navitem"><a href="{% url 'logout' %}"><h1 class="navlist-title">logout</h1></a></li> 
+          {%else%}
+          <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+          <li class="navitem"><a href="{% url 'login' %}"><h1 class="navlist-title">login</h1></a></li>  
+          <li class="navitem"><a href="{% url 'register' %}"><h1 class="navlist-title">register</h1></a></li>
+          {%endif%}    
+    </nav>
+    <h1 class="title"> Vowels Website</h1>
+
+    <h2 class="sec-title">hello {{ user.username }}</h2>
+
+    <h2 class="sec-title">number of games</h2>
+    <h2 class="third-title">{{ number_score }}</h2>
+    <h2 class="sec-title">all points</h2>
+    <h2 class="third-title">{{ allscore }}</h2>
+    <h2 class="sec-title">best score</h2>
+    <h2 class="third-title">{{ bestscore }}</h2>
+
+    
+</div>    
+</body>
+</html>    

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signature</title> 
+    <!-- Custom Css -->
+    <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- More Custom Css -->
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+              {%if user.is_authenticated %}
+              <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+              <li class="navitem"><a href="{% url 'profile' %}"><h1 class="navlist-title">profile</h1></a></li>
+              <li class="navitem"><a href="{% url 'logout' %}"><h1 class="navlist-title">logout</h1></a></li> 
+              {%else%}
+              <li class="navitem"><a href="{% url 'home' %}"><h1 class="navlist-title">home</h1></a></li>
+              <li class="navitem"><a href="{% url 'login' %}"><h1 class="navlist-title">login</h1></a></li>  
+              <li class="navitem"><a href="{% url 'register' %}"><h1 class="navlist-title">register</h1></a></li>
+              {%endif%}    
+        </nav>
+        {% if quiz.quiz_number_of_questions < quiz.quiz_number_of_current_question %}
+        <h1 class="title"> Vowels Website - resuilt</h1>
+        {% elif quiz.quiz_number_of_word == 0 %}
+        <h1 class="title"> Vowels Website - resuilt</h1>
+        {% elif quiz.quiz_number_of_gusses == 0 %}
+        <h1 class="title"> Vowels Website - resuilt</h1>
+        {% else %}
+        <h1 class="title"> Vowels Website - questions - {{quiz.quiz_number_of_current_question}} resuilt</h1>
+        {% endif %}
+
+
+
+        <div class="scoandgus">
+            <h2 class="score">score <span class="sps">{{quiz.quiz_score}}</span></h2>
+            <h2 class="chances">Guesses <span class="sps">{{quiz.quiz_number_of_gusses}}</span></h2>
+        </div>
+        
+
+
+
+{% if quiz.quiz_number_of_questions < quiz.quiz_number_of_current_question %}
+<h2 class="resulttex">you win the game congratlation.<br> You score was {{quiz.quiz_score}} </h2>
+{% elif quiz.quiz_number_of_word == 0 %}
+<h2 class="resulttex">you win the game congratlation.<br> You score was {{quiz.quiz_score}}  </h2>
+{% elif quiz.quiz_number_of_gusses == 0 %}
+<h2 class="resulttex">Game Over. <br> You score was {{quiz.quiz_score}}</h2>
+{% else %}
+<div class="correction">
+    <h1 class="correctiontext">your answer was <span class="spsct">{{check}}</span> </h1>
+    <h1 class="correctiontext">the word was <span class="spsct">{{question.word_name}}</span> </h1>
+    <h1 class="correctiontext">the right answer is <span class="spsctvowel">{{question.vowel_name}}</span> </h1>
+</div>  
+<form class=""  action="{% url 'nextquestion' %}" method="post">
+    {% csrf_token %}
+    <input id="quiz_num" type="hidden" name="quiznum" value="{{ quiz }}">
+    <input id="qst_num" type="hidden" name="qstnum" value="{{ qst }}">
+    <input id="qstid" type="hidden" name="qstid" value="{{question}}">
+    <BR></BR>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit" >next question</button>
+      </div>
+  </form>
+{% endif %}
+
+
+<div class="form-group">
+    <a href="{% url 'home' %}">
+    <button class="btn btn-outline-info" type="submit" >restart</button>
+    </a>
+  </div>
+</div> 
+</body>
+</html>    
+    
+
