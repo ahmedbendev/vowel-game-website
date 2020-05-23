@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Signature</title> 
+    <title>Vowels Website resuilt</title> 
     <!-- Custom Css -->
     <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -38,16 +38,16 @@
 
         <div class="scoandgus">
             <h2 class="score">score <span class="sps">{{quiz.quiz_score}}</span></h2>
-            <h2 class="chances">Guesses <span class="sps">{{quiz.quiz_number_of_gusses}}</span></h2>
+            <h2 class="chances">Guesses <span class="sps">{{cor}}</span></h2>
         </div>
         
 
 
 
 {% if quiz.quiz_number_of_questions < quiz.quiz_number_of_current_question %}
-<h2 class="resulttex">you win the game congratlation.<br> You score was {{quiz.quiz_score}} </h2>
+<h2 class="resulttex">you win the game congratlation.<br> Your score : {{quiz.quiz_score}} <br>Your percentage : {{quiz.quiz_score_percentage}} %</h2>
 {% elif quiz.quiz_number_of_word == 0 %}
-<h2 class="resulttex">you win the game congratlation.<br> You score was {{quiz.quiz_score}}  </h2>
+<h2 class="resulttex">you win the game congratlation.<br> Your score : {{quiz.quiz_score}}<br>Your percentage : {{quiz.quiz_score_percentage}} %</h2>
 {% elif quiz.quiz_number_of_gusses == 0 %}
 <h2 class="resulttex">Game Over. <br> You score was {{quiz.quiz_score}}</h2>
 {% else %}

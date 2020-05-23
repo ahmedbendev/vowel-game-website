@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Signature</title> 
+    <title>Vowels Website - question</title> 
     <!-- Custom Css -->
     <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,11 +29,15 @@
 
     <div class="scoandgus">
     <h2 class="score">score <span class="sps">{{quiz.quiz_score}}</span></h2>
-    <h2 class="chances">Guesses <span class="sps">{{quiz.quiz_number_of_gusses}}</span></h2>
+    <h2 class="chances">Guesses <span class="sps">{{cor}}</span></h2>
     </div>
-    {%if cor == 2 %}
-    <h3 class="incans">your answer was incorect please try again</h3>
-    {%endif%}   
+    {%if cor == quiz.quiz_number_of_gusses %}
+    {%elif cor == 0 %}
+    <h3 class="incans">your answer was incorect the correct answer is <span class="spsctvowel">{{question.vowel_name}}</span></h3>
+    {%else%}
+    <h3 class="incans">your answer was incorect try again</span></h3>
+    {%endif%}
+
 
 <!-- <h2 class="qsthint">listen to the sound than choose your answer :</h2> -->
 <div class="audioplayer">
@@ -49,48 +53,130 @@ the game is end
   {% csrf_token %}
   <input id="quiz_num" type="hidden" name="quiznum" value="{{ quiz }}">
   <input id="qst_num" type="hidden" name="qstnum" value="{{ qst }}">
-  <input id="qst_num" type="hidden" name="question" value="{{ question }}">
+  <input id="question" type="hidden" name="question" value="{{ question }}">
+  <input id="cor" type="hidden" name="cor" value="{{ cor }}">
   <div class="onechosediv">
-  <div class="optionchose"> 
+
+  {% if cor == 0 and question.vowel_name == "i" %}
+  <div class="optionchosecorrection"> 
   <input type="radio" id="male" name="vowel" value="i">
   <label class="onechoselabel">i</label><br>
-  </div> 
+  </div>
+  {% else %}
   <div class="optionchose"> 
+    <input type="radio" id="male" name="vowel" value="i">
+    <label class="onechoselabel">i</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "I" %} 
+  <div class="optionchosecorrection"> 
   <input type="radio" id="female" name="vowel" value="I">
   <label class="onechoselabel">I</label><br>
   </div>
-  <div class="optionchose">  
+  {% else %}
+  <div class="optionchose"> 
+    <input type="radio" id="female" name="vowel" value="I">
+    <label class="onechoselabel">I</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "e" %}     
+  <div class="optionchosecorrection">  
   <input type="radio" id="other" name="vowel" value="e">
   <label class="onechoselabel">e</label><br>
   </div>
+  {% else %}
   <div class="optionchose">  
+    <input type="radio" id="other" name="vowel" value="e">
+    <label class="onechoselabel">e</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "ԑ" %}     
+  <div class="optionchosecorrection">  
   <input type="radio" id="male" name="vowel" value="ԑ">
   <label class="onechoselabel">ԑ</label><br>
   </div>
+  {% else %}
   <div class="optionchose">  
+    <input type="radio" id="male" name="vowel" value="ԑ">
+    <label class="onechoselabel">ԑ</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "ᴂ" %}  
+  <div class="optionchosecorrection">  
   <input type="radio" id="female" name="vowel" value="ᴂ">
   <label class="onechoselabel">ᴂ</label><br>
   </div>
-  <div class="optionchose">   
+  {% else %}
+  <div class="optionchose">  
+    <input type="radio" id="female" name="vowel" value="ᴂ">
+    <label class="onechoselabel">ᴂ</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "a" %}
+  <div class="optionchosecorrection">   
   <input type="radio" id="other" name="vowel" value="a">
   <label class="onechoselabel">a</label><br>
   </div>
-  <div class="optionchose"> 
+  {% else %}
+  <div class="optionchose">   
+    <input type="radio" id="other" name="vowel" value="a">
+    <label class="onechoselabel">a</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "ᴧ" %}
+  <div class="optionchosecorrection"> 
   <input type="radio" id="male" name="vowel" value="ᴧ">
   <label class="onechoselabel">ᴧ</label><br>
   </div>
+  {% else %}
   <div class="optionchose"> 
+    <input type="radio" id="male" name="vowel" value="ᴧ">
+    <label class="onechoselabel">ᴧ</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "o" %}
+  <div class="optionchosecorrection"> 
   <input type="radio" id="female" name="vowel" value="o">
   <label class="onechoselabel">o</label><br>
   </div>
+  {% else %}
   <div class="optionchose"> 
+    <input type="radio" id="female" name="vowel" value="o">
+    <label class="onechoselabel">o</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "ᶷ" %}
+  <div class="optionchosecorrection"> 
   <input type="radio" id="other" name="vowel" value="ᶷ">
   <label class="onechoselabel">ᶷ</label><br>
   </div>
+  {% else %}
+  <div class="optionchose"> 
+    <input type="radio" id="other" name="vowel" value="ᶷ">
+    <label class="onechoselabel">ᶷ</label><br>
+  </div>
+  {%endif%}
+
+  {% if cor == 0 and question.vowel_name == "u" %}
+  <div class="optionchosecorrection"> 
+    <input type="radio" id="other" name="vowel" value="u">
+    <label class="onechoselabel">u</label><br>
+  </div>
+  {% else %}
   <div class="optionchose"> 
     <input type="radio" id="other" name="vowel" value="u">
     <label class="onechoselabel">u</label><br>
   </div>
+  {%endif%}
+
   </div>
   <div class="form-group">
     <button class="btn btn-outline-info" type="submit" >SUBMIT</button>

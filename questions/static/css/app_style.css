@@ -354,11 +354,12 @@ input#id_password2 {
     padding: 10px;
     border-radius: 20px;
 }
-.spsctvowel{
+.spsctvowel {
     color: white;
     background: black;
     padding: 10px;
     border-radius: 20px;
+    text-transform: lowercase;
 }
 .resulttex {
     text-align: center;
@@ -386,4 +387,42 @@ input#id_password2 {
     margin-bottom: 20px;
     margin-right: 80px;
     margin-left: 80px;
+}
+.optionchosecorrection {
+    background: #1cacb1;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 20px;
+}
+.end-profile {
+    padding: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-family: monospace;
+    margin-bottom: 30px;
+}
+.flform {
+    text-align: center;
+    margin-top: 13vh;
+    background: black;
+    width: 400px;
+    margin-left: 35vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+.flbtn {
+    font-size: 25px;
+    border-radius: 9px;
+    text-transform: uppercase;
+    cursor: pointer;
 }

@@ -24,6 +24,7 @@ class Quiz(models.Model):
     quiz_number_of_questions = models.IntegerField(default=10)
     quiz_number_of_current_question= models.IntegerField(default=1)
     quiz_score = models.IntegerField(default=0,)
+    quiz_score_percentage = models.IntegerField(default=0,)
 
     def __str__(self):
         return str(self.id)

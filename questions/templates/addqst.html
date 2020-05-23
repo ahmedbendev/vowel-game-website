@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vowels Website</title> 
+    <!-- Custom Css -->
+    <link href="{% static "css/app_style.css" %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- More Custom Css -->
+</head>
+<body>
+    <h1 class="title"> Vowels Website - add question</h1>
+        <h1 class="title"> NUMBER OF QUESTION IN DATABASE :{{qstindb}}</h1>
+
+<form class="flform" method="post" enctype="multipart/form-data" action="{% url 'addqst' %}">
+    {% csrf_token %}
+    <input class="flinpute" type="file" name="myfile" multiple>
+    <button class="flbtn" type="submit">Upload</button>
+</form>
+
+</body>
+</html> 
